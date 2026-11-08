@@ -1,0 +1,226 @@
+:root {
+  --color-primario: #1E3A5F;
+  --color-acento: #2E86AB;
+  --color-texto: #212529;
+  --fuente-base: "Segoe UI", Arial, sans-serif;
+  --espaciado-base: 8px;
+  --color-fondo: #F5F7FA;
+  --color-acento:#1f6a8a;
+  --color-error: #b3261e;
+  --columnas-catalogo: 2;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente-base);
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+}
+
+header {
+  background-color: var(--color-primario);
+  color: white;
+  padding: calc(var(--espaciado-base) * 2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: calc(var(--espaciado-base) * 2);
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: var(--color-acento);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+nav a[aria-current]{
+  border-bottom: 3px solid white;
+  padding-bottom: 2px;
+}
+
+main {
+  padding: 0 24px;
+}
+
+.tarjetas-productos {
+  display: grid;
+  grid-template-columns:
+    repeat(var(--columnas-catalogo), minmax(0, 1fr));
+  gap: 16px;
+}
+
+article {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  padding: calc(var(--espaciado-base) * 2);
+  background-color: white;
+  border: 1px solid #D9E2EC;
+  border-radius: 4px;
+  margin-bottom: calc(var(--espaciado-base) * 2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+article img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.tarjeta-producto-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0;
+}
+
+.etiqueta-categoria {
+  display: inline-block;
+  background-color: var(--color-fondo);
+  color: var(--color-acento);
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-bottom: var(--espaciado-base);
+}
+
+.enlace-detalle {
+  display: inline-block;
+  color: var(--color-acento);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.enlace-detalle:hover {
+  text-decoration: underline;
+}
+
+.tarjeta-producto-precio {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--color-primario);
+  margin: 0;
+}
+
+p,
+.texto-secundario {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.boton-agregar {
+  display: inline-block;
+  margin-top: calc(var(--espaciado-base) * 2);
+  margin-bottom: calc(var(--espaciado-base) * 2);
+  padding: var(--espaciado-base)
+           calc(var(--espaciado-base) * 2);
+  background-color: var(--color-acento);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.boton-agregar:hover {
+  background-color: var(--color-primario);
+}
+
+h1 {
+  font-size: 1.75rem;
+}
+
+h2 {
+  font-size: 1.1rem;
+  margin: 0 0 4px 0;
+}
+
+.campo{
+  margin-bottom: calc(var(--espaciado-base)*2);
+}
+
+label{
+  display: block;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+input{
+  width:100%;
+  max-width: 420%;
+  padding: var(--espaciado-base);
+  border: 1px solid #6c757d;
+  border-radius: 4px;
+  font: inherit;
+}
+
+input:user-invalid{
+  border-color: var(--color-error);
+}
+
+.ayuda-campo{
+  font-size: 0.875 rem;
+  margin: 4px 0 0;
+}
+
+.error-campo{
+  display: none;
+  font-size: 0.875rem;
+  font-weight: bold;
+  color:var(--color-error);
+  margin: 4px 0 0;
+}
+
+input:user-invalid ~ .error-campo{
+  display:block
+}
+
+.boton-agregar,button[type="submit"]{
+  display: inline-block;
+  padding: calc(var(--espaciado-base)*1.5) calc(var(--espaciado-base)*2);
+  background-color: var(--color-acento);
+  color:white;
+  font: inherit;
+  font-weight: bold;
+  text-decoration: none;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.migas ol{
+  list-style:none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaciado-base);
+  margin: calc(var(--espaciado-base)*2)0;
+  padding:0;
+}
+
+.migas a{
+  color: var(--espaciado-base);
+}
+
+.migas li + li::before{
+  content: "/";
+  margin-right: var(--espaciado-base);
+}
